@@ -1,0 +1,13 @@
+XDC_open() {
+    GEL_ProjectLoad("K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/configPkg.pjt");
+    GEL_ProjectLoad("K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/cfg/main_x430.pjt");
+    GEL_ProjectSetActive("K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/cfg/main_x430.pjt");
+}
+XDC_close() {
+    GEL_ProjectClose("K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/configPkg.pjt");
+    GEL_ProjectClose("K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/cfg/main_x430.pjt");
+}
+menuitem "XDC Package"
+hotmenu load_executable () { GEL_Load("K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/main.x430"); }
+hotmenu open_project () { XDC_open(); }
+hotmenu close_project () { XDC_close(); }

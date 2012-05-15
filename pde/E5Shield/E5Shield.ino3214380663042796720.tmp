@@ -1,0 +1,216 @@
+
+/* Analog and Digital Input and Output Server for MATLAB    */
+/* adapted from */
+/* Giampiero Campa, Copyright 2009 The MathWorks, Inc       */
+/* Modified by Erik Cheever, Swarthmore College, 2012       */
+
+/* This file is meant to be used with the MATLAB arduino IO 
+   package, however, it can be used from the IDE environment
+   (or any other serial terminal) by typing commands like:
+   
+   0e0 : assigns digital pin #4 (e) as input
+   0f1 : assigns digital pin #5 (f) as output
+   0n1 : assigns digital pin #13 (n) as output   
+   
+   1c  : reads digital pin #2 (c) 
+   1e  : reads digital pin #4 (e) 
+   2n0 : sets digital pin #13 (n) low
+   2n1 : sets digital pin #13 (n) high
+   2f1 : sets digital pin #5 (f) high
+   2f0 : sets digital pin #5 (f) low
+   4j2 : sets digital pin #9 (j) to  50=ascii(2) over 255
+   4jz : sets digital pin #9 (j) to 122=ascii(z) over 255
+   3a  : reads analog pin #0 (a) 
+   3f  : reads analog pin #5 (f) 
+
+   RD  : sets analog reference to DEFAULT
+   RI  : sets analog reference to INTERNAL
+   RE  : sets analog reference to EXTERNAL
+  
+   SS  : returns script type (1 = E5Shield)   */
+
+boolean inString(String s, char c);  // function declaration
+  
+void setup() {
+  /* Make sure all pins are put in high impedence state and 
+     that their registers are set as low before doing anything.
+     This puts the board in a known (and harmless) state     */
+  int i;
+  for (i=0;i<20;i++) {
+    pinMode(i,INPUT);
+    digitalWrite(i,0);
+  }
+  /* initialize serial                                       */
+  Serial.begin(115200);
+
+}
+
+void loop() {  
+
+  /* variables declaration and initialization                */  
+  static int  pin = 13;    // generic pin number
+  int s;  //DELETE THIS!!!!!!!!!!!!!!
+
+  int  val =  0;           // generic value read from serial 
+  int  agv =  0;           // generic analog value
+  int  dgv =  0;           // generic digital value
+
+  enum myStates {
+    WAITING,     // Default mode, do nothing
+    PINMODE,     // Get pin #
+    PINSET,      // Set pin mode
+    DIGITALIN,   // Read pin value
+    DIGITALOUT,  // Get pin #
+    DIGITALSET,  // Set pin high or low
+    ANALOGIN,     // Read pin value
+    ANALOGOUT,   // Get pin #
+    ANALOGSET,   // Set pin level (PWM)
+    VOLTAGEREF,  // Voltage reference (for A/D)
+    SCRIPTQUERY  // Script Query
+  } static state = WAITING;
+  
+  int jklj;
+
+ 
+  const String vpins = "cdefghijklmn";   // Valid pin codes for I/O
+
+  /* The following instruction constantly checks if anything 
+     is available on the serial port. Nothing gets executed in
+     the loop if nothing is available to be read, but as soon 
+     as anything becomes available, then the part coded after 
+     the if statement (that is the real stuff) gets executed */
+  if (Serial.available() > 0) {
+    /* whatever is available from the serial is read here    */
+    val = Serial.read(); 
+    
+    /* This part basically implements a state machine that   
+       reads the serial port and makes just one transition 
+       to a new state, depending on both the previous state 
+       and the command that is read from the serial port. 
+       Some commands need additional inputs from the serial 
+       port, so they need 2 or 3 state transitions (each one
+       happening as soon as anything new is available from 
+       the serial port) to be fully executed. After a command 
+       is fully executed the state returns to its initial 
+       value s=-1                                            */
+    switch (state) {		
+      // ****************** WAITING ****************************
+      case WAITING:     
+        switch (val) {
+          case 'P':  state=PINMODE;      break;
+          case 'd':  state=DIGITALIN;    break;
+          case 'D':  state=DIGITALOUT;   break;
+          case 'a':  state=ANALOGIN;     break;
+          case 'A':  state=ANALOGOUT;    break;
+          case 'R':  state-VOLTAGEREF;   break;
+          case 'S':  state=SCRIPTQUERY;  break;
+        }
+        break;
+        
+      //********************** Pin Mode ************************
+      case PINMODE:
+        if (inString(vpins,val)) {      // pin # is 'a' + pin
+            pin=val-'a';                // calculate pin
+            state=PINSET;               // next state (below)
+        } 
+        else {
+          state=WAITING; /* if value is not a pin then WAIT    */
+        }
+        break; /* s=0 taken care of                            */
+  
+      case PINSET:
+        /* the third received value indicates the value 0 or 1 */
+        if (inString("01",val)) {
+          if (val=='0') pinMode(pin,INPUT);  // Set pin mode
+          else          pinMode(pin,OUTPUT);
+        }
+        state=WAITING; // Go back to WAIT
+        break;         // mode PINSET done.
+      
+      //******************* DIGITAL INPUT *********************     
+      case DIGITALIN:
+        if (inString(vpins,val)) {   // pin # is 'a' + pin
+          pin=val-'a';               // calculate pin
+          dgv=digitalRead(pin);      // perform Digital Input
+          Serial.println(dgv);       // send value via serial
+        }
+        state = WAITING;             // Go back to WAIT
+        break;                       // mode DIGITALIN done
+      
+      //******************* DIGITAL OUTPUT ********************     
+      case DIGITALOUT:
+        if (inString(vpins,val)) {   // pin # is 'a' + pin
+          pin=val-'a';               // calculate pin
+          state=DIGITALSET;          // next state (below)
+        } 
+        else {
+          state=WAITING; // if value is not a pin then WAIT
+        }
+       break; // state==DIGITALOUT done
+
+      case DIGITALSET:
+        if (inString("01",val)) {  // 3rd received value is 0 or 1
+          if (val=='0') digitalWrite(pin,0);  // Set pin level
+          else          digitalWrite(pin,1);
+        }
+        state=WAITING;              // Go back to WAIT
+        break;                      // state==DIGITALSET done
+
+      //******************* ANALOG INPUT **********************     
+      case ANALOGIN:
+        if (inString("abcdef",val)) {
+          pin=val-'a';               // calculate pin
+          agv=analogRead(pin);       // perform Analog Input
+  	  Serial.println(agv);       // send value via serial
+        }
+        state = WAITING;             // Go back to WAIT
+        break; // state==ANALOGIN is done
+
+      //******************* ANALOG OUTPUT *********************     
+      case ANALOGOUT:
+        if (inString(vpins,val)) {       // pin # is 'a' + pin
+          pin=val-'a';                   // calculate pin
+          state = ANALOGSET;             // Go back to WAIT
+        }
+        else {
+          state = WAITING;             // Go back to WAIT
+        }
+        break; // state==ANALOGOUT is done
+
+      case ANALOGSET:
+        analogWrite(pin,val);        /* perform Analog Output  */
+        state = WAITING;             // Go back to WAIT
+        break; // state==ANALOGSET is done
+           
+        /* s=90 means Query Script Type (1 basic, 2 motor)     */
+      case SCRIPTQUERY:
+        if (val=='S') Serial.println(1);
+        state = WAITING;             // Go back to WAIT
+        break; /* s=90 taken care of                           */
+
+      //******************* VOLTAGE REFERENCE *********************     
+      case VOLTAGEREF:
+        /* the second received value indicates the reference,
+           which is encoded as is 0,1,2 for DEFAULT, INTERNAL  
+           and EXTERNAL, respectively                          */
+           
+        switch (val) {
+          case 'D':  analogReference(DEFAULT);    break;        
+          case 'I':  analogReference(INTERNAL);   break;        
+          case 'E':  analogReference(EXTERNAL);   break;        
+          default:  break;
+        } 
+  
+        state = WAITING;             // Go back to WAIT
+        break; /* s=341 taken care of                          */
+
+      //******************* UNRECOGNIZED STATE *******************     
+      default: state = WAITING;   // Go back to WAIT
+    } // end switch on state s
+  } // end if serial available  
+} // end loop statement
+
+// Function returns true if char "c" is in string "s"
+boolean inString(String s, char c) {
+  return (s.indexOf(c) != -1);
+}

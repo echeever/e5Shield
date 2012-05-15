@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="configPkg" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/main_p430.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/main_p430.mak" src="package.bld"/>
+        <srcFile name="package/cfg/main_p430.o430.dep" src="package/cfg/main_p430.c"/>
+        <srcFile name="package/cfg/main_p430.dep" src="package/cfg/main_p430.cfg"/>
+        <srcFile name="package/cfg/main.x430.mak" src="package.bld"/>
+        <srcFile name="package/rel/configPkg.tar.dep" src="package/rel/configPkg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.msp430.MSP430"
+            version="ti.targets.msp430.MSP430{1,0,4.0,0"
+            platform="ti.platforms.exp430F5438"
+            isa="430"
+            suffix="430"
+            rootDir="C:/TI/ccsv5/tools/compiler/msp430"
+            os="undefined"
+            rts="ti.targets.msp430.rts430">
+            <model endian="little"
+                codeModel="small"
+                dataModel="small"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="main"
+        pname="main.p430"
+        target="ti.targets.msp430.MSP430"
+        platform="ti.platforms.msp430:MSP430G2553"
+        profile="debug"
+        isPartial="false"
+        xCfgScript="package/cfg/main_p430.cfg"
+        xCfgPrefix="package/cfg/main_p430"
+        cfgScript="K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="main"
+        pname="main.x430"
+        target="ti.targets.msp430.MSP430"
+        platform="ti.platforms.msp430:MSP430G2553"
+        profile="debug"
+        xCfgScript="package/cfg/main_p430.cfg"
+        xCfgPrefix="package/cfg/main_p430"
+        cfgScript="K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="main.x430"
+        args=""
+        groupName="main.x430"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="configPkg"
+        pname="configPkg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

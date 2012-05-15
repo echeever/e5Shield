@@ -1,0 +1,9 @@
+package/cfg/main_p430.o430: package/cfg/main_p430.c C:/TI/xdctools_3_22_04_46/packages/xdc/std.h C:/TI/ccsv5/tools/compiler/msp430/include/stdarg.h C:/TI/ccsv5/tools/compiler/msp430/include/stddef.h C:/TI/grace_1_10_00_17/packages/ti/targets/msp430/std.h C:/TI/xdctools_3_22_04_46/packages/ti/targets/select.h C:/TI/xdctools_3_22_04_46/packages/ti/targets/std.h C:/TI/ccsv5/tools/compiler/msp430/include/stdint.h 
+package/cfg/main_p430.c:
+C:/TI/xdctools_3_22_04_46/packages/xdc/std.h:
+C:/TI/ccsv5/tools/compiler/msp430/include/stdarg.h:
+C:/TI/ccsv5/tools/compiler/msp430/include/stddef.h:
+C:/TI/grace_1_10_00_17/packages/ti/targets/msp430/std.h:
+C:/TI/xdctools_3_22_04_46/packages/ti/targets/select.h:
+C:/TI/xdctools_3_22_04_46/packages/ti/targets/std.h:
+C:/TI/ccsv5/tools/compiler/msp430/include/stdint.h:
