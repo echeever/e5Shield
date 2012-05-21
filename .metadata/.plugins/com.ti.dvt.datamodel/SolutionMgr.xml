@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
+ <object class="com.ti.dvt.datamodel.solution.SolutionManager$PersistState"> 
+  <void property="defaultSolution"> 
+   <string>C:\TI\ccsv5\ccs_base\DebugServer\..\dvt_3.1.0.201201192237\CodeGen\solutions\CodeGenCoverage</string> 
+  </void> 
+  <void property="openedSolutions"> 
+   <void method="add"> 
+    <string>C:\TI\ccsv5\ccs_base\DebugServer\..\dvt_3.1.0.201201192237\CodeGen\solutions\CodeGenCoverage</string> 
+   </void> 
+  </void> 
+ </object> 
+</java> 
