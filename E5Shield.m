@@ -11,7 +11,6 @@ classdef E5Shield < handle
     end
     
     properties (Hidden=true)
-        chks = false;  % Checks serial connection before every operation
         chkp = true;   % Checks parameters before every operation
     end
     
@@ -191,31 +190,18 @@ classdef E5Shield < handle
                     end
                 end
             end
-            
-            % perform the requested action
-            if nargin==3,
-                % check a.aser for validity if a.chks is true
-                if a.chks,
-                    errstr=E5Shield.checkser(a.aser,'valid');
-                    if ~isempty(errstr), error(errstr); end
-                end
                 
                 %%%%%%%%%%%%%%%%%%%%%%%%% CHANGE PIN MODE %%%%%%%%%%%%%%%%%
                 % assign value
                 if lower(str(1))=='o', val=1; else val=0; end
                 % do the actual action here
                 
-                % check a.aser for openness if a.chks is true
-                if a.chks,
-                    errstr=E5Shield.checkser(a.aser,'open');
-                    if ~isempty(errstr), error(errstr); end
-                end
                 % send mode, pin and value
                 fwrite(a.aser,['P' '0'+pin '0'+val],'uchar');
                 % store 0 for input and 1 for output
                 a.pins(pin)=val;
                 
-            elseif nargin==2,
+            if nargin==2,
                 % print pin mode for the requested pin
                 mode={'UNASSIGNED','set as INPUT','set as OUTPUT'};
                 disp(['Digital Pin ' num2str(pin) ' is currently ' mode{2+a.pins(pin)}]);
@@ -255,19 +241,7 @@ classdef E5Shield < handle
                 if ~isempty(errstr), error(errstr); end
             end
             
-            % check a.aser for validity if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'valid');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             %%%%%%%%%%%%%%%%%%%%%%%%% PERFORM DIGITAL INPUT %%%%%%%%%%%%%%%
-            % check a.aser for openness if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'open');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             % send mode and pin
             fwrite(a.aser,['d' '0'+pin],'uchar');
             
@@ -313,19 +287,7 @@ classdef E5Shield < handle
                 end
             end
             
-            % check a.aser for validity if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'valid');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             %%%%%%%%%%%%%%%%%%%%%%%%% PERFORM DIGITAL OUTPUT %%%%%%%%%%%%%%%%%%%%%%%%%%
-            % check a.aser for openness if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'open');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             % send mode, pin and value
             fwrite(a.aser,['D' '0'+pin '0'+val],'uchar');
         end % digitalwrite
@@ -358,18 +320,7 @@ classdef E5Shield < handle
                 if ~isempty(errstr), error(errstr); end
             end
             
-            % check a.aser for validity if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'valid');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             %%%%%%%%%%%%%%%%%%%%%%%%% PERFORM ANALOG INPUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            % check a.aser for openness if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'open');
-                if ~isempty(errstr), error(errstr); end
-            end
             % send mode and pin
             fwrite(a.aser,['a' '0'+pin],'uchar');
             
@@ -412,19 +363,7 @@ classdef E5Shield < handle
                 end
             end
             
-            % check a.aser for validity if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'valid');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             %%%%%%%%%%%%%%%%%%%%%%%%% PERFORM ANALOG OUTPUT %%%%%%%%%%%%%%%%%%%%%%%%%%%
-            % check a.aser for openness if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'open');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             % send mode, pin and value
             fwrite(a.aser,['A' '0'+pin val],'uchar');
         end % analogwrite
@@ -455,19 +394,7 @@ classdef E5Shield < handle
                 if ~isempty(errstr), error(errstr); end
             end
             
-            % check a.aser for validity if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'valid');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             %%%%%%%%%%%%%%%%%%%% CHANGE ANALOG INPUT REFERENCE %%%%%%%%%%%
-            % check a.aser for openness if a.chks is true
-            if a.chks,
-                errstr=E5Shield.checkser(a.aser,'open');
-                if ~isempty(errstr), error(errstr); end
-            end
-            
             if lower(str(1))=='e', ref='E';
             elseif lower(str(1))=='i', ref='I';
             else ref='D';
@@ -476,6 +403,55 @@ classdef E5Shield < handle
             % send mode, pin and value
             fwrite(a.aser,['R' ref],'uchar');
         end % analogreference
+        
+        function servoWrite(a,n,val)
+            % a.servoWrite(n,val); specifies the pulse width for a Servo motor.
+            % The first argument before the function name, a, is the E5Shield object.
+            % The second argument, n, is the Servo that will be adjusted.
+            % The third argument, val, is the desired pulse width.
+            
+            %%%%%%%%%%%%%%%%%%%%%%%%% ARGUMENT CHECKING %%%%%%%%%%%%%%%%%%%
+            % check arguments if a.chkp is true
+            if a.chkp
+                % check nargin
+                if nargin~=3,
+                    error('Function must have the "n" (Servo number) and "val" arguments');
+                end
+                % check Servo number, n
+                errstr=E5Shield.checknum(n,'Servo number',0:7);
+                if ~isempty(errstr), error(errstr); end
+                % check val
+                errstr=E5Shield.checknum(val,'value',0:251);
+                if ~isempty(errstr), error(errstr); end
+            end
+            
+            %%%%%%%%%%%%%%%%%%%%% PERFORM SERVO OUTPUT %%%%%%%%%%%%%%%%%%
+            % send mode, Servo number and value
+            fwrite(a.aser,['S' '0'+n val],'uchar');
+        end % servoWrite
+        
+        function servoDisable(a,n)
+            % a.servoDisable(n); disables a Servo motor by setting its pulse width out of range.
+            % The first argument before the function name, a, is the E5Shield object. 
+            % The second argument, n, is the Servo to be disabled.
+            
+            %%%%%%%%%%%%%%%%%%%%%%%%% ARGUMENT CHECKING %%%%%%%%%%%%%%%%%%%
+            % check arguments if a.chkp is true
+            if a.chkp
+                % check nargin
+                if nargin~=2,
+                    error('Function must have the "n" (Servo number) argument');
+                end
+                % check Servo number, n
+                errstr=E5Shield.checknum(n,'Servo number',0:7);
+                if ~isempty(errstr), error(errstr); end
+            end
+            
+            %%%%%%%%%%%%%%%%%%%%% PERFORM SERVO DISABLE %%%%%%%%%%%%%%%%%%
+            % Given Servo is disabled by calling the servoWrite function
+            % and setting the value to 251.
+            a.servoWrite(n,251);
+        end %servoDisable
     end % methods
     
     methods (Static) % static methods
