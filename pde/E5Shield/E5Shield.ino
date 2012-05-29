@@ -79,7 +79,7 @@ void loop() {
   
   const String vpins = "23456789:;<=";   // Valid pin codes for I/O
   const String apins = "0123";           // Valid pin codes for analog in
-  const String vsrvs = "01234567=>";      // Valid servo values
+  const String vsrvs = "0123456789";     // Valid servo values
 
   /* The following instruction constantly checks if anything 
      is available on the serial port. Nothing gets executed in
