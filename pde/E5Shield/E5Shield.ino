@@ -161,7 +161,7 @@ void loop() {
 
       //******************* ANALOG INPUT **********************     
       case ANALOGIN:
-        if (inString("abcdef",val)) {
+        if (inString(apins,val)) {
           pin=val-'0';               // calculate pin
           agv=analogRead(pin);       // perform Analog Input
   	  Serial.println(agv);       // send value via serial
