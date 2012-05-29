@@ -5,7 +5,7 @@
 % This is a MATLAB class that allows performing Analog/Digital Input 
 % and Output with the Arduino Board from the MATLAB command line.
 % Please read the file readme.txt for more info
-% 
+%   
 
 % FILES:
 % 
