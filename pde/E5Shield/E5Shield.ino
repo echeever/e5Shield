@@ -49,7 +49,7 @@ void setup() {
     digitalWrite(i,0);
   }
   Serial.begin(115200);     // initialize serial 
-  Wire.begin();                          
+  Wire.begin();
 }
 
 void loop() {  
@@ -71,12 +71,11 @@ void loop() {
     ANALOGOUT,     // Get pin #
     ANALOGSET,     // Set pin level (PWM)
     SERVOOUT,      // Get servo #
-    SERVOSET,      
-    // Set servo #
+    SERVOSET,      // Set servo #
     VOLTAGEREF,    // Voltage reference (for A/D)
-    SCRIPTQUERY  // Script Query
+    SCRIPTQUERY   // Script Query
   } static state = WAITING;
-  
+
   const String vpins = "23456789:;<=";   // Valid pin codes for I/O
   const String apins = "0123";           // Valid pin codes for analog in
   const String vsrvs = "0123456789";     // Valid servo values
@@ -216,7 +215,7 @@ void loop() {
         if (val=='?') Serial.println(1);
         state = WAITING;             // Go back to WAIT
         break; // state==SCRIPTQUERY is done
-
+        
       //******************* UNRECOGNIZED STATE *******************     
       default: state = WAITING;   // Go back to WAIT
       

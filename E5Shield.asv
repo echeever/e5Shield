@@ -95,7 +95,7 @@ classdef E5Shield < handle
             % initialize pin vector (-1 is unassigned, 0 is input, 1 is output)
             a.pins=-1*ones(1,13);
             % initialize servo vector (-1 is unknown, 0 is detached, 1 is attached)
-            disp('E5Shield successfully connected !');
+            disp('E5Shield successfully connected!');
         end % E5Shield
         
         % distructor, deletes the object
@@ -421,7 +421,7 @@ classdef E5Shield < handle
                 errstr=E5Shield.checknum(n,'Servo number',0:7);
                 if ~isempty(errstr), error(errstr); end
                 % check val
-                errstr=E5Shield.checknum(val,'value',0:250);
+                errstr=E5Shield.checknum(val,'value',0:251);
                 if ~isempty(errstr), error(errstr); end
             end
             
@@ -430,7 +430,7 @@ classdef E5Shield < handle
             fwrite(a.aser,['S' '0'+n val],'uchar');
         end % servoWrite
         
-        function servoDisable(n)
+        function servoDisable(a,n)
             % a.servoDisable(n); disables a Servo motor by setting its pulse width out of range.
             % The first argument before the function name, a, is the E5Shield object. 
             % The second argument, n, is the Servo to be disabled.
@@ -440,7 +440,7 @@ classdef E5Shield < handle
             if a.chkp
                 % check nargin
                 if nargin~=2,
-                    error('Function must have the Servo number, "n", argument');
+                    error('Function must have the "n" (Servo number) argument');
                 end
                 % check Servo number, n
                 errstr=E5Shield.checknum(n,'Servo number',0:7);
@@ -449,8 +449,8 @@ classdef E5Shield < handle
             
             %%%%%%%%%%%%%%%%%%%%% PERFORM SERVO DISABLE %%%%%%%%%%%%%%%%%%
             % Given Servo is disabled by calling the servoWrite function
-            % and setting the value to 251=ascii(û).
-            a.servoWrite(n,'û');
+            % and setting the value to 251.
+            a.servoWrite(n,251);
         end %servoDisable
     end % methods
     

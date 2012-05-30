@@ -95,7 +95,7 @@ classdef E5Shield < handle
             % initialize pin vector (-1 is unassigned, 0 is input, 1 is output)
             a.pins=-1*ones(1,13);
             % initialize servo vector (-1 is unknown, 0 is detached, 1 is attached)
-            disp('E5Shield successfully connected !');
+            disp('E5Shield successfully connected!');
         end % E5Shield
         
         % distructor, deletes the object
@@ -190,6 +190,8 @@ classdef E5Shield < handle
                     end
                 end
             end
+            % perform the requested action
+            if nargin == 3,
                 
                 %%%%%%%%%%%%%%%%%%%%%%%%% CHANGE PIN MODE %%%%%%%%%%%%%%%%%
                 % assign value
@@ -201,7 +203,7 @@ classdef E5Shield < handle
                 % store 0 for input and 1 for output
                 a.pins(pin)=val;
                 
-            if nargin==2,
+            elseif nargin==2,
                 % print pin mode for the requested pin
                 mode={'UNASSIGNED','set as INPUT','set as OUTPUT'};
                 disp(['Digital Pin ' num2str(pin) ' is currently ' mode{2+a.pins(pin)}]);
