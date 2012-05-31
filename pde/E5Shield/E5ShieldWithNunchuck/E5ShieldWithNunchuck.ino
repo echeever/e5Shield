@@ -44,7 +44,7 @@ boolean inString(String s, char c);  // function declaration
 uint8_t outbuf[6]; // array to store arduino output
 int cnt = 0;
 int ledPin = 13;
-int nunchIn = 0;
+int nunchIn = 0;  // Shows whether nunchuck has been initialized
   
 void setup() {
   /* Make sure all pins are put in high impedence state and 
@@ -57,7 +57,17 @@ void setup() {
   }
   Serial.begin(115200);     // initialize serial 
   Wire.begin();
-}
+  delay(1000);
+  Wire.beginTransmission(0xC2);   // 0xC2 is servo controller
+  Wire.write(8);                  // Write to Servo 8 (connected to an LED)
+  Wire.write(251);                // Assign Servo value to 251, turning the LED on
+  Wire.endTransmission();
+  delay(300);                     // wait 3 msec
+  Wire.beginTransmission(0xC2);
+  Wire.write(8);
+  Wire.write((byte)0x00);         // turn LED off (by setting Servo 8 to value 0), this
+  Wire.endTransmission();         // flashing LED shows that there is communication
+}                                 // between the computer and the board
 
 void
 nunchuck_init ()
@@ -75,6 +85,7 @@ nunchuck_init ()
   Wire.endTransmission ();	        // stop transmitting
   digitalWrite (ledPin, LOW);	        // sets the LED off
 //  Serial.print ("... Done.\n");
+// indicates that nunchuck has been initialized any subsequent time nunchuck state is entered
   nunchIn = 1;
   delay(200);
 }
@@ -85,60 +96,6 @@ send_zero ()
   Wire.beginTransmission (nchckAdd);	// transmit to device 0x52
   Wire.write ((byte)0x00);		// sends one byte
   Wire.endTransmission ();	// stop transmitting
-}
-
-// Print the input data we have recieved
-// accel data is 10 bits long
-// so we read 8 bits, then we have to add
-// on the last 2 bits.  That is why I
-// multiply them by 2 * 2
-void
-print ()
-{
-  int joy_x_axis = outbuf[0];
-  int joy_y_axis = outbuf[1];
-  int accel_x_axis = outbuf[2] << 2; 
-  int accel_y_axis = outbuf[3] << 2;
-  int accel_z_axis = outbuf[4] << 2;
-//  outbuf[5] = (outbuf[5]^0x17) + 0x17;
-
-  int z_button = 0;
-  int c_button = 0;
-
- // byte outbuf[5] contains bits for z and c buttons
- // it also contains the least significant bits for the accelerometer data
- // so we have to check each bit of byte outbuf[5]
-  if (outbuf[5] & 1) z_button = 1;
-  if (outbuf[5] & 2) c_button = 1;
-  accel_x_axis += ((outbuf[5]>>2) & 3);
-  accel_y_axis += ((outbuf[5]>>4) & 3);
-  accel_z_axis += ((outbuf[5]>>6) & 3);
- 
-  Serial.print (joy_x_axis, DEC);
-  Serial.print ("\t");
-
-  Serial.print (joy_y_axis, DEC);
-  Serial.print ("\t");
-
-  Serial.print (accel_x_axis, DEC);
-  Serial.print ("\t");
-
-  Serial.print (accel_y_axis, DEC);
-  Serial.print ("\t");
-
-  Serial.print (accel_z_axis, DEC);
-  Serial.print ("\t");
-
-  Serial.print (z_button, DEC);
-  Serial.print ("\t");
-
-  Serial.print (c_button, DEC);
-  Serial.print ("\t");
-
-  Serial.print (outbuf[5], HEX);
-  Serial.print ("\t");
-
-  Serial.print ("\r\n");
 }
 
 void loop() {  
@@ -168,7 +125,7 @@ void loop() {
 
   const String vpins = "23456789:;<=";   // Valid pin codes for I/O
   const String apins = "0123";           // Valid pin codes for analog in
-  const String vsrvs = "0123456789";     // Valid servo values
+  const String vsrvs = "012345678";     // Valid servo values
 
   /* The following instruction constantly checks if anything 
      is available on the serial port. Nothing gets executed in
@@ -309,30 +266,52 @@ void loop() {
         
       //******************** NUNCHUCK INPUT **********************
       case NUNCHUCKIN:
-        if (nunchIn==0) nunchuck_init (); // send the initilization handshake
+        // send the initialization handshake if first time nunchuck state entered
+        if (nunchIn==0) nunchuck_init ();
         Wire.requestFrom (nchckAdd, 6);  // request data from nunchuck
         while (Wire.available ())
           {
       //      outbuf[cnt] = nunchuk_decode_byte (Wire.read ());	// receive byte as an integer
+//            Wire.read();
+//            delay(200);
             outbuf[cnt] = Wire.read();
             digitalWrite (ledPin, HIGH);	// sets the LED on
             cnt++;
-          }
+          };
       
-        // If we recieved the 6 bytes, then go print them 
-        if (cnt == 6)
-          {
-            print ();
-          }
-          else break;
-      
-        cnt = 0;
-        send_zero (); // send the request for next bytes
-        digitalWrite (ledPin, LOW);	// sets the LED on
-        delay (200);
-  
-        state=WAITING; // go back to WAIT
-        break;         // state==NUNCHUCKIN done
+        // If we did not recieve the 6 bytes, then show an error
+        if (cnt != 6) {
+          Serial.print('.');
+          state=WAITING; // go back to WAIT
+          break;         // state==NUNCHUCKIN done
+        }
+        else {
+          Serial.print(outbuf[0]); Serial.print('\t');  // x-axis value of joystick
+          Serial.print(outbuf[1]); Serial.print('\t');  // y-axis value of joystick
+          // Accelerometer data is 10 bits long, so first 8 bits are read
+          // and shifted over two places. The last two bits are then added
+          // on from the outbuf[5] byte.
+          // x-acceleration value
+          Serial.print((outbuf[2]<<2)+((outbuf[5]>>2) & 3)); Serial.print('\t');
+          // y-acceleration
+          Serial.print((outbuf[3]<<2)+((outbuf[5]>>4) & 3)); Serial.print('\t');\
+          // z-acceleration
+          Serial.print((outbuf[4]<<2)+((outbuf[5]>>6) & 3)); Serial.print('\t');
+          // byte outbuf[5] contains bits for z and c buttons
+          // so we have to check the last two bits of outbuf[5]
+          int z=0; int c=0;
+          if (outbuf[5] & 1) z=1; if (outbuf[5] & 2) c=1;
+          Serial.print(c); Serial.print('\t');  // z button
+          Serial.print(z); Serial.print('\n');  // c button
+          
+          cnt = 0;
+          send_zero (); // send the request for next bytes
+          digitalWrite (ledPin, LOW);	// sets the LED on
+          delay (200);
+    
+          state=WAITING; // go back to WAIT
+          break;         // state==NUNCHUCKIN done
+        }
 
       //******************* UNRECOGNIZED STATE *******************     
       default: state = WAITING;   // Go back to WAIT

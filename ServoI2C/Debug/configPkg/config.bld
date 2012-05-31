@@ -4,4 +4,4 @@ var target  = xdc.module('ti.targets.msp430.MSP430');
 target.ccOpts.prefix = "--symdebug:dwarf --optimize_with_debug " + target.ccOpts.prefix;
 Build.targets = [target];
 /* configuro was passed the target's rootDir explicitly */
-Build.targets[0].rootDir = 'C:/TI/ccsv5/tools/compiler/msp430';
+Build.targets[0].rootDir = 'C:/ti/ccsv5/tools/compiler/msp430';

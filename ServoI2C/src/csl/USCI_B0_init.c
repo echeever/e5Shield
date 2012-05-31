@@ -2,7 +2,7 @@
  *  ==== DO NOT MODIFY THIS FILE - CHANGES WILL BE OVERWRITTEN ====
  *
  *  Generated from
- *      C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/communication/USCI_B0_init.xdt
+ *      C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/communication/USCI_B0_init.xdt
  */
 
 #include <msp430.h>

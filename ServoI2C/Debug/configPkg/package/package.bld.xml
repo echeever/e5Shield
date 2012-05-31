@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/main_p430.c"/>
     </sources>
     <configscripts>
-        <srcFile name="K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"/>
+        <srcFile name="C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/main.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -24,7 +24,7 @@
             platform="ti.platforms.exp430F5438"
             isa="430"
             suffix="430"
-            rootDir="C:/TI/ccsv5/tools/compiler/msp430"
+            rootDir="C:/ti/ccsv5/tools/compiler/msp430"
             os="undefined"
             rts="ti.targets.msp430.rts430">
             <model endian="little"
@@ -43,7 +43,7 @@
         isPartial="false"
         xCfgScript="package/cfg/main_p430.cfg"
         xCfgPrefix="package/cfg/main_p430"
-        cfgScript="K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"
+        cfgScript="C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/main.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -55,7 +55,7 @@
         profile="debug"
         xCfgScript="package/cfg/main_p430.cfg"
         xCfgPrefix="package/cfg/main_p430"
-        cfgScript="K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"
+        cfgScript="C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/main.cfg"
         cfgArgs="null"
         />
     </executables>

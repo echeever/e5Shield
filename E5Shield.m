@@ -21,7 +21,7 @@ classdef E5Shield < handle
             % check nargin
             if nargin<1,
                 s='There must be one input argument.  ';
-                s=[s,'e.g., E5Shield(''COM8''), where ''COM8'' is '];
+                s=[s,'e.g., E5ShieldNunch(''COM8''), where ''COM8'' is '];
                 s=[s,'the serial port connected to the Arduino '];
                 s=[s,'(get this from ''Device Manager'').'];
                 error(s)
@@ -65,9 +65,9 @@ classdef E5Shield < handle
             end
             
             % it takes several seconds to connect
-            fprintf('Attempting connection: 7');
-            for i=1:7,
-                pause(1); fprintf(',%1d',7-i);
+            fprintf('Attempting connection: 3');
+            for i=1:3,
+                pause(1); fprintf(',%1d',3-i);
             end
             fprintf('\n');
             
@@ -134,7 +134,7 @@ classdef E5Shield < handle
                         disp(' ');
                         a.pinMode
                         disp(' ');
-                        disp('Pin IO Methods: <a href="matlab:help pinMode">pinMode</a> <a href="matlab:help digitalRead">digitalRead</a> <a href="matlab:help digitalWrite">digitalWrite</a> <a href="matlab:help analogRead">analogRead</a> <a href="matlab:help analogWrite">analogWrite</a>');
+                        disp('Pin IO Methods: <a href="matlab:help pinMode">pinMode</a> <a href="matlab:help digitalRead">digitalRead</a> <a href="matlab:help digitalWrite">digitalWrite</a> <a href="matlab:help analogRead">analogRead</a> <a href="matlab:help analogWrite">analogWrite</a> <a href="matlab:help servoWrite">servoWrite</a> <a href="matlab:help servoDisable">servoDisable</a> <a href="matlab:help nunchuck">nunchuck</a>');
                 else
                     disp('<a href="matlab:help E5Shield">E5Shield</a> object connected to an invalid serial port');
                     disp('Please delete the E5Shield object');
@@ -229,7 +229,6 @@ classdef E5Shield < handle
             %
             % Example:
             % val=a.digitalRead(4); % reads pin #4
-            %
             
             %%%%%%%%%%%%%%%%%%%%%%%%% ARGUMENT CHECKING %%%%%%%%%%%%%%%%%%%
             % check arguments if a.chkp is true
@@ -246,7 +245,6 @@ classdef E5Shield < handle
             %%%%%%%%%%%%%%%%%%%%%%%%% PERFORM DIGITAL INPUT %%%%%%%%%%%%%%%
             % send mode and pin
             fwrite(a.aser,['d' '0'+pin],'uchar');
-            
             % get value
             val=fscanf(a.aser,'%d');
         end % digitalread
@@ -325,7 +323,6 @@ classdef E5Shield < handle
             %%%%%%%%%%%%%%%%%%%%%%%%% PERFORM ANALOG INPUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
             % send mode and pin
             fwrite(a.aser,['a' '0'+pin],'uchar');
-            
             % get value
             val=fscanf(a.aser,'%d');
         end % analogread
@@ -352,7 +349,7 @@ classdef E5Shield < handle
                     error('Function must have the "pin" and "val" arguments');
                 end
                 % check pin
-                errstr=E5Shield.checknum(pin,'pwm pin number',[3 5 6 9 10 11]);
+                errstr=E5Shield.checknum(pin,'pwm pin number',0:5);
                 if ~isempty(errstr), error(errstr); end
                 % check val
                 errstr=E5Shield.checknum(val,'analog output level',0:255);
@@ -420,7 +417,7 @@ classdef E5Shield < handle
                     error('Function must have the "n" (Servo number) and "val" arguments');
                 end
                 % check Servo number, n
-                errstr=E5Shield.checknum(n,'Servo number',0:7);
+                errstr=E5Shield.checknum(n,'Servo number',0:8);
                 if ~isempty(errstr), error(errstr); end
                 % check val
                 errstr=E5Shield.checknum(val,'value',0:251);
@@ -454,6 +451,30 @@ classdef E5Shield < handle
             % and setting the value to 251.
             a.servoWrite(n,251);
         end %servoDisable
+        
+        function nunchuck(a)
+            % a.nunchuck; stores and prints an array of values
+            % containing: the joystick's x- and y-values; the x-, y- and
+            % z-values of the accelerometer; whether or not the C- and
+            % Z-buttons are being pressed.
+            % The argument before the function name, a, is the E5Shield
+            % object.
+            
+            %%%%%%%%%%%%%%%%%%%%%%%%% ARGUMENT CHECKING %%%%%%%%%%%%%%%%%%%
+            if a.chkp
+                % check nargin
+                if nargin~=1,
+                    error('Function must be entered in the format a.nunchuck');
+                end
+            end
+            %%%%%%%%%%%%%%%%%% PERFORM NUNCHUCK INPUT %%%%%%%%%%%%%%%%%%%%%
+            % send mode
+            fwrite(a.aser,['n',1],'uchar')
+            % get values
+            nunch = fscanf(a.aser,'%d');
+            % store values in a structure for readability
+            NunchuckValues = struct('JoystickX',nunch(1),'JoystickY',nunch(2),'AccelX',nunch(3),'AccelY',nunch(4),'AccelZ',nunch(5),'CButton',nunch(6),'ZButton',nunch(7))
+        end %nunchuck
     end % methods
     
     methods (Static) % static methods

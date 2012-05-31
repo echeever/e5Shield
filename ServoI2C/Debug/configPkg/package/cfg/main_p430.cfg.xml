@@ -23,7 +23,7 @@
             usedby="configPkg"/>
 </targets>
 <imports>
-    <package name="xdc.services.global" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.services.global" version="1, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.services.global.Clock"
                 used="true"
                 uses="">
@@ -35,21 +35,21 @@
                 uses="">
         </module>
     </package>
-    <package name="xdc" version="1, 1, 1" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc" version="1, 1, 1" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.corevers" version="16, 0, 2, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.corevers" version="16, 0, 2, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.shelf" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.shelf" version="1, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.services.spec" version="1, 0, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.services.spec" version="1, 0, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.services.intern.xsr" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.services.intern.xsr" version="1, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.services.intern.gen" version="1, 0, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.services.intern.gen" version="1, 0, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.services.intern.cmd" version="1, 0, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.services.intern.cmd" version="1, 0, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="xdc.bld" version="1, 0, 2" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.bld" version="1, 0, 2" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.bld.BuildEnvironment"
                 used="false"
                 uses="">
@@ -103,7 +103,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.targets" version="1, 0, 3" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="ti.targets" version="1, 0, 3" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="ti.targets.C62"
                 used="false"
                 uses="">
@@ -209,7 +209,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.targets.msp430" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.targets.msp430" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.targets.msp430.MSP430"
                 used="false"
                 uses="">
@@ -223,13 +223,13 @@
                 uses="">
         </module>
     </package>
-    <package name="xdc.services.getset" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.services.getset" version="1, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.services.getset.GetSet"
                 used="false"
                 uses="">
         </module>
     </package>
-    <package name="xdc.rov" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.rov" version="1, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.rov.Model"
                 used="false"
                 uses="">
@@ -255,7 +255,7 @@
                 uses="">
         </module>
     </package>
-    <package name="xdc.runtime" version="2, 1, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.runtime" version="2, 1, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.runtime.Assert"
                 used="false"
                 uses="">
@@ -361,15 +361,9 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.targets.msp430.rts430" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.targets.msp430.rts430" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
     </package>
-    <package name="xdc.services.io" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
-        <module name="xdc.services.io.File"
-                used="false"
-                uses="">
-        </module>
-    </package>
-    <package name="xdc.cfg" version="1, 0, 2, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.cfg" version="1, 0, 2, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.cfg.Program"
                 used="true"
                 uses="">
@@ -400,7 +394,7 @@
   <field name="boardName">msp430</field>
   <field name="boardFamily">null</field>
   <field name="boardRevision">null</field>
-</struct></field><field name='attrs'>xdc.services.intern.xsr.Value$Obj@164debb::(xdc.platform.ICpuDataSheet.Instance)ti.catalog.msp430.MSP430.Instance#0</field><field name='memoryMap'></field></instance>
+</struct></field><field name='attrs'>xdc.services.intern.xsr.Value$Obj@120540c::(xdc.platform.ICpuDataSheet.Instance)ti.catalog.msp430.MSP430.Instance#0</field><field name='memoryMap'></field></instance>
             </feature>
             <feature name="platformName" type="string" value="ti.platforms.msp430%3AMSP430G2553"/>
             <feature name="platform" type="xdc.platform.IPlatform.Instance"><instance id='ti.platforms.msp430.Platform.Instance#0' ><field name='externalMemoryMap'></field><field name='customMemoryMap'></field><field name='renameMap'></field><field name='dataMemory'>null</field><field name='codeMemory'>null</field><field name='stackMemory'>null</field><field name='sectMap'></field></instance>
@@ -417,13 +411,13 @@
         <module name="xdc.cfg.SourceDir"
                 used="true"
                 uses="">
-            <feature name="outputDir" type="string" value="K%3A%5CMYDOCU%7E1%5CWorkspaceCCS5%5CServoI2C/src"/>
+            <feature name="outputDir" type="string" value="C%3A%5CUsers%5Cnaaron1%5CDocuments%5CGitHub%5Ce5Shield%5CServoI2C/src"/>
             <feature name="toBuildDir" type="string" value=".."/>
             <feature name="makefileName" type="string" value="makefile.libs"/>
             <feature name="verbose" type="number" value="0"/>
         </module>
     </package>
-    <package name="xdc.platform" version="1, 0, 1, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="xdc.platform" version="1, 0, 1, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
         <module name="xdc.platform.ExeContext"
                 used="true"
                 uses="">
@@ -433,7 +427,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.MSP430"
                 used="true"
                 uses="">
@@ -483,9 +477,9 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog" version="1, 0, 0" repository="C:/TI/xdctools_3_22_04_46/packages/">
+    <package name="ti.catalog" version="1, 0, 0" repository="C:/ti/xdctools_3_22_04_46/packages/">
     </package>
-    <package name="ti.catalog.msp430.peripherals.timer" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.timer" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.timer.Timer_A2"
                 used="false"
                 uses="">
@@ -531,7 +525,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.adc" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.adc" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.adc.ADC10"
                 used="true"
                 uses="">
@@ -545,7 +539,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.clock" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.clock" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.clock.BCSplus"
                 used="true"
                 uses="">
@@ -555,7 +549,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.communication" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.communication" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.communication.USCI_A0_UART_2xx"
                 used="true"
                 uses="">
@@ -593,7 +587,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.gpio" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.gpio" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x01"
                 used="false"
                 uses="">
@@ -695,19 +689,19 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.svs" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.svs" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.svs.SVS"
                 used="false"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.dac" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.dac" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.dac.DAC12"
                 used="false"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.special_function" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.special_function" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.special_function.IE1"
                 used="true"
                 uses="">
@@ -721,37 +715,37 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.oa" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.oa" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.oa.OA_2"
                 used="false"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.watchdog" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.watchdog" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.watchdog.WDTplus"
                 used="true"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.interrupt" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.interrupt" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.interrupt.Interrupt_Controller"
                 used="true"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.memory" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.memory" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.memory.Flash_2xx"
                 used="true"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.peripherals.comparator" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.peripherals.comparator" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.peripherals.comparator.Comparator_Aplus"
                 used="true"
                 uses="">
         </module>
     </package>
-    <package name="ti.catalog.msp430.init" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.catalog.msp430.init" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.catalog.msp430.init.Boot"
                 used="true"
                 uses="">
@@ -770,7 +764,7 @@
             <feature name="configureDCO" type="boolean" value="false"/>
         </module>
     </package>
-    <package name="ti.platforms.msp430" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.platforms.msp430" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.platforms.msp430.Platform"
                 used="true"
                 uses="">
@@ -779,7 +773,7 @@
             <feature name="nameFormat" type="string" value="%24%28deviceName%29%3A%24%28includeLinkCmdFile%29"/>
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl.system" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.system" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.system.System"
                 used="true"
                 uses="">
@@ -863,7 +857,7 @@
             <feature name="systemRegistersPageName" type="string" value="System2xx.xml"/>
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl.gpio" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.gpio" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.gpio.GPIO"
                 used="true"
                 uses="">
@@ -915,13 +909,13 @@
       <elem>
         <struct id="ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0/devicePinSetting/0/6">
           <field name="functionIndex">0x3</field>
-          <field name="owner">xdc.services.intern.xsr.Value$Obj@1f0cf51::ti.mcu.msp430.csl.communication.USCI_B0</field>
+          <field name="owner">xdc.services.intern.xsr.Value$Obj@11a0d35::ti.mcu.msp430.csl.communication.USCI_B0</field>
         </struct>
       </elem>
       <elem>
         <struct id="ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0/devicePinSetting/0/7">
           <field name="functionIndex">0x2</field>
-          <field name="owner">xdc.services.intern.xsr.Value$Obj@1f0cf51::ti.mcu.msp430.csl.communication.USCI_B0</field>
+          <field name="owner">xdc.services.intern.xsr.Value$Obj@11a0d35::ti.mcu.msp430.csl.communication.USCI_B0</field>
         </struct>
       </elem>
     </vector>
@@ -1030,7 +1024,7 @@
       </elem>
     </vector>
   </elem>
-</vector></field><field name='adc10'>xdc.services.intern.xsr.Value$Obj@ea85b4::ti.catalog.msp430.peripherals.adc.ADC10.Instance#0</field><field name='comparator'>xdc.services.intern.xsr.Value$Obj@efeff8::(ti.catalog.msp430.peripherals.comparator.IComparator.Instance)ti.catalog.msp430.peripherals.comparator.Comparator_Aplus.Instance#0</field><field name='devicePins'><vector id="ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0/devicePins" length="3">
+</vector></field><field name='adc10'>xdc.services.intern.xsr.Value$Obj@1c3432a::ti.catalog.msp430.peripherals.adc.ADC10.Instance#0</field><field name='comparator'>xdc.services.intern.xsr.Value$Obj@6e96ff::(ti.catalog.msp430.peripherals.comparator.IComparator.Instance)ti.catalog.msp430.peripherals.comparator.Comparator_Aplus.Instance#0</field><field name='devicePins'><vector id="ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0/devicePins" length="3">
   <elem>
     <vector id="ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0/devicePins/0" length="8">
       <elem>
@@ -5457,30 +5451,30 @@
             </feature>
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.CSL"
                 used="true"
                 uses="">
-            <feature name="outputDir" type="string" value="K%3A%5CMYDOCU%7E1%5CWorkspaceCCS5%5CServoI2C/src/csl"/>
+            <feature name="outputDir" type="string" value="C%3A%5CUsers%5Cnaaron1%5CDocuments%5CGitHub%5Ce5Shield%5CServoI2C/src/csl"/>
             <feature name="configApiVersion" type="string" value="1.00.00"/>
             <feature name="enableTrace" type="boolean" value="false"/>
             <feature name="device" type="ti.catalog.msp430.MSP430.Instance"><instance id='ti.catalog.msp430.MSP430.Instance#0' ><field name='cpuCore'>MSP430.*</field><field name='cpuCoreRevision'>undefined</field><field name='minProgUnitSize'>0x1</field><field name='minDataUnitSize'>0x1</field><field name='dataWordSize'>0x2</field><field name='peripherals'><map id="ti.catalog.msp430.MSP430.Instance#0/peripherals" length="16">
-  <entry key="interruptController">xdc.services.intern.xsr.Value$Obj@bd7ea6::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.interrupt.Interrupt_Controller.Instance#0</entry>
-  <entry key="statusRegister">xdc.services.intern.xsr.Value$Obj@c5fc10::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.special_function.SR.Instance#0</entry>
-  <entry key="interruptEnableRegister1">xdc.services.intern.xsr.Value$Obj@2784fd::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.special_function.IE1.Instance#0</entry>
-  <entry key="interruptEnableRegister2">xdc.services.intern.xsr.Value$Obj@8c0b75::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.special_function.IE2.Instance#0</entry>
-  <entry key="clock">xdc.services.intern.xsr.Value$Obj@443aea::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</entry>
-  <entry key="watchdog">xdc.services.intern.xsr.Value$Obj@177e204::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.watchdog.WDTplus.Instance#0</entry>
-  <entry key="flash">xdc.services.intern.xsr.Value$Obj@1979423::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.memory.Flash_2xx.Instance#0</entry>
-  <entry key="usci_A0_UART">xdc.services.intern.xsr.Value$Obj@7e8ac0::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_A0_UART_2xx.Instance#0</entry>
-  <entry key="usci_A0_SPI">xdc.services.intern.xsr.Value$Obj@1c7634d::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_A0_SPI_2xx.Instance#0</entry>
-  <entry key="usci_B0_SPI">xdc.services.intern.xsr.Value$Obj@148886f::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_B0_SPI_2xx.Instance#0</entry>
-  <entry key="usci_B0_I2C">xdc.services.intern.xsr.Value$Obj@f5321e::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_B0_I2C_2xx.Instance#0</entry>
-  <entry key="Timer0_A3">xdc.services.intern.xsr.Value$Obj@1ad7f3f::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0</entry>
-  <entry key="Timer1_A3">xdc.services.intern.xsr.Value$Obj@17d353f::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.timer.Timer1_A3.Instance#0</entry>
-  <entry key="adc10">xdc.services.intern.xsr.Value$Obj@132ed19::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.adc.ADC10.Instance#0</entry>
-  <entry key="comparator">xdc.services.intern.xsr.Value$Obj@6c3730::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.comparator.Comparator_Aplus.Instance#0</entry>
-  <entry key="gpio">xdc.services.intern.xsr.Value$Obj@9b42fe::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0</entry>
+  <entry key="interruptController">xdc.services.intern.xsr.Value$Obj@193bc9d::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.interrupt.Interrupt_Controller.Instance#0</entry>
+  <entry key="statusRegister">xdc.services.intern.xsr.Value$Obj@4426cd::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.special_function.SR.Instance#0</entry>
+  <entry key="interruptEnableRegister1">xdc.services.intern.xsr.Value$Obj@4f6d47::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.special_function.IE1.Instance#0</entry>
+  <entry key="interruptEnableRegister2">xdc.services.intern.xsr.Value$Obj@8f7ea3::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.special_function.IE2.Instance#0</entry>
+  <entry key="clock">xdc.services.intern.xsr.Value$Obj@c309e0::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</entry>
+  <entry key="watchdog">xdc.services.intern.xsr.Value$Obj@bd7ea6::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.watchdog.WDTplus.Instance#0</entry>
+  <entry key="flash">xdc.services.intern.xsr.Value$Obj@c5fc10::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.memory.Flash_2xx.Instance#0</entry>
+  <entry key="usci_A0_UART">xdc.services.intern.xsr.Value$Obj@2784fd::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_A0_UART_2xx.Instance#0</entry>
+  <entry key="usci_A0_SPI">xdc.services.intern.xsr.Value$Obj@8c0b75::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_A0_SPI_2xx.Instance#0</entry>
+  <entry key="usci_B0_SPI">xdc.services.intern.xsr.Value$Obj@443aea::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_B0_SPI_2xx.Instance#0</entry>
+  <entry key="usci_B0_I2C">xdc.services.intern.xsr.Value$Obj@177e204::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.communication.USCI_B0_I2C_2xx.Instance#0</entry>
+  <entry key="Timer0_A3">xdc.services.intern.xsr.Value$Obj@1979423::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0</entry>
+  <entry key="Timer1_A3">xdc.services.intern.xsr.Value$Obj@7e8ac0::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.timer.Timer1_A3.Instance#0</entry>
+  <entry key="adc10">xdc.services.intern.xsr.Value$Obj@1c7634d::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.adc.ADC10.Instance#0</entry>
+  <entry key="comparator">xdc.services.intern.xsr.Value$Obj@148886f::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.comparator.Comparator_Aplus.Instance#0</entry>
+  <entry key="gpio">xdc.services.intern.xsr.Value$Obj@f5321e::(xdc.platform.IPeripheral.Instance)ti.catalog.msp430.peripherals.gpio.GPIO_MSP430G2x53.Instance#0</entry>
 </map></field><field name='deviceHeader'>undefined</field><field name='isa'>430.*</field><field name='vcc'>3.3</field></instance>
             </feature>
             <feature name="blockDiagramPageTitle" type="string" value="MSP430G2553"/>
@@ -5496,7 +5490,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl.communication" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.communication" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.communication.USCI_UART"
                 used="true"
                 uses="">
@@ -5547,7 +5541,7 @@
   <field name="UCFE">UCFE_OFF</field>
   <field name="UCOE">UCOE_OFF</field>
   <field name="UCBUSY">UCBUSY</field>
-</struct></field><field name='UCB0BR0'>0x0</field><field name='UCB0BR1'>0x0</field><field name='UCB0RXBUF'>0x0</field><field name='UCB0TXBUF'>0x0</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@161ddb::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='forceSetDefaultRegister'><vector id="ti.catalog.msp430.peripherals.communication.USCI_B0_SPI_2xx.Instance#0/forceSetDefaultRegister" length="7">
+</struct></field><field name='UCB0BR0'>0x0</field><field name='UCB0BR1'>0x0</field><field name='UCB0RXBUF'>0x0</field><field name='UCB0TXBUF'>0x0</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@8f18c9::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='forceSetDefaultRegister'><vector id="ti.catalog.msp430.peripherals.communication.USCI_B0_SPI_2xx.Instance#0/forceSetDefaultRegister" length="7">
   <elem>
     <struct id="ti.catalog.msp430.peripherals.communication.USCI_B0_SPI_2xx.Instance#0/forceSetDefaultRegister/0">
       <field name="register">UCB0CTL0</field>
@@ -5619,7 +5613,7 @@
 </struct></field><field name='UCB0I2COA'><struct id="ti.catalog.msp430.peripherals.communication.USCI_B0_I2C_2xx.Instance#0/UCB0I2COA">
   <field name="UCGCEN">UCGCEN_OFF</field>
   <field name="I2COA">0xc2</field>
-</struct></field><field name='UCB0I2CSA'>0x0</field><field name='UCB0RXBUF'>0x0</field><field name='UCB0TXBUF'>0x0</field><field name='UCB0BR0'>0x0</field><field name='UCB0BR1'>0x0</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@8b0d7d::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='UCB0I2CIE'><struct id="ti.catalog.msp430.peripherals.communication.USCI_B0_I2C_2xx.Instance#0/UCB0I2CIE">
+</struct></field><field name='UCB0I2CSA'>0x0</field><field name='UCB0RXBUF'>0x0</field><field name='UCB0TXBUF'>0x0</field><field name='UCB0BR0'>0x0</field><field name='UCB0BR1'>0x0</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@5306bb::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='UCB0I2CIE'><struct id="ti.catalog.msp430.peripherals.communication.USCI_B0_I2C_2xx.Instance#0/UCB0I2CIE">
   <field name="UCNACKIE">UCNACKIE_OFF</field>
   <field name="UCSTPIE">UCSTPIE_OFF</field>
   <field name="UCSTTIE">UCSTTIE_OFF</field>
@@ -5769,7 +5763,7 @@
                 uses="">
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl.timer" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.timer" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.timer.Timer_A2"
                 used="false"
                 uses="">
@@ -6178,7 +6172,7 @@ EQUx = EQU0.
             </feature>
             <feature name="timerNumber" type="number" value="0"/>
             <feature name="TimerType" type="string" value="A"/>
-            <feature name="Timer_xx" type="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance"><instance id='ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0' ><field name='name'>Timer0_A3</field><field name='owner'>undefined</field><field name='baseAddr'>0x160</field><field name='intNum'>0x9</field><field name='numberOfTimers'>0x3</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@13f8e47::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='TACLK'>0x0</field><field name='INCLK'>0x0</field><field name='TA0CTL'><struct id="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CTL">
+            <feature name="Timer_xx" type="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance"><instance id='ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0' ><field name='name'>Timer0_A3</field><field name='owner'>undefined</field><field name='baseAddr'>0x160</field><field name='intNum'>0x9</field><field name='numberOfTimers'>0x3</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@c417c9::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='TACLK'>0x0</field><field name='INCLK'>0x0</field><field name='TA0CTL'><struct id="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CTL">
   <field name="TASSEL">TASSEL_1</field>
   <field name="ID">ID_0</field>
   <field name="MC">MC_1</field>
@@ -6269,12 +6263,12 @@ EQUx = EQU0.
             <feature name="TxxCTL" type="ti.catalog.msp430.peripherals.timer.ITimer_A.TACTL_t"><struct id='ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CTL' ><field name='TASSEL'>TASSEL_1</field><field name='ID'>ID_0</field><field name='MC'>MC_1</field><field name='TACLR'>TACLR_OFF</field><field name='TAIE'>TAIE_OFF</field><field name='TAIFG'>TAIFG_OFF</field></struct>
             </feature>
             <feature name="TxxR" type="undefined" value="undefined"/>
-            <feature name="TxxCCTLx" type="object"><vector id='ti.mcu.msp430.csl.timer.Timer0_A3/TxxCCTLx'  length='8'><elem>xdc.services.intern.xsr.Value$Obj@e605ae::ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CCTL0</elem><elem>xdc.services.intern.xsr.Value$Obj@17f0c00::ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CCTL1</elem><elem>xdc.services.intern.xsr.Value$Obj@1eceb55::ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CCTL2</elem><elem>undefined</elem><elem>undefined</elem><elem>undefined</elem><elem>undefined</elem><elem>undefined</elem></vector>
+            <feature name="TxxCCTLx" type="object"><vector id='ti.mcu.msp430.csl.timer.Timer0_A3/TxxCCTLx'  length='8'><elem>xdc.services.intern.xsr.Value$Obj@17f1d61::ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CCTL0</elem><elem>xdc.services.intern.xsr.Value$Obj@61db6e::ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CCTL1</elem><elem>xdc.services.intern.xsr.Value$Obj@8d3d03::ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CCTL2</elem><elem>undefined</elem><elem>undefined</elem><elem>undefined</elem><elem>undefined</elem><elem>undefined</elem></vector>
             </feature>
             <feature name="TxxCCRx" type="object"><vector id='ti.mcu.msp430.csl.timer.Timer0_A3/TxxCCRx'  length='8'><elem>0xb</elem><elem>0x0</elem><elem>0x0</elem><elem>0x0</elem><elem>0x0</elem><elem>0x0</elem><elem>0x0</elem><elem>0x0</elem></vector>
             </feature>
             <feature name="TxxIV" type="undefined" value="undefined"/>
-            <feature name="regs" type="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance"><instance id='ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0' ><field name='name'>Timer0_A3</field><field name='owner'>undefined</field><field name='baseAddr'>0x160</field><field name='intNum'>0x9</field><field name='numberOfTimers'>0x3</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@13f8e47::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='TACLK'>0x0</field><field name='INCLK'>0x0</field><field name='TA0CTL'><struct id="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CTL">
+            <feature name="regs" type="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance"><instance id='ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0' ><field name='name'>Timer0_A3</field><field name='owner'>undefined</field><field name='baseAddr'>0x160</field><field name='intNum'>0x9</field><field name='numberOfTimers'>0x3</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@c417c9::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field><field name='TACLK'>0x0</field><field name='INCLK'>0x0</field><field name='TA0CTL'><struct id="ti.catalog.msp430.peripherals.timer.Timer0_A3.Instance#0/TA0CTL">
   <field name="TASSEL">TASSEL_1</field>
   <field name="ID">ID_0</field>
   <field name="MC">MC_1</field>
@@ -6378,7 +6372,7 @@ EQUx = EQU0.
                 uses="">
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl.watchdog" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.watchdog" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.watchdog.WDTplus"
                 used="true"
                 uses="">
@@ -6405,7 +6399,7 @@ EQUx = EQU0.
       <field name="regForceSet">true</field>
     </struct>
   </elem>
-</vector></field><field name='baseAddr'>0x120</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@1328a4f::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field></instance>
+</vector></field><field name='baseAddr'>0x120</field><field name='clock'>xdc.services.intern.xsr.Value$Obj@ea5bdf::(ti.catalog.msp430.peripherals.clock.IClock.Instance)ti.catalog.msp430.peripherals.clock.BCSplus.Instance#0</field></instance>
             </feature>
             <feature name="defs" type="ti.catalog.msp430.peripherals.watchdog.WDTplus.Module"><module id='ti.catalog.msp430.peripherals.watchdog.WDTplus' ></module>
             </feature>
@@ -6428,7 +6422,7 @@ EQUx = EQU0.
             <feature name="enableNMIWidget" type="boolean" value="false"/>
         </module>
     </package>
-    <package name="ti.mcu.msp430.csl.clock" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.clock" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.clock.BCSplus"
                 used="true"
                 uses="">
@@ -6569,9 +6563,9 @@ EQUx = EQU0.
             <feature name="note3" type="string" value="Set%20a%20delay%20value%20in%20miliseconds%20based%20on%20the%20system%20rise%20time%20to%20ensure%20no%20violation%20of%20VCC%20vs%20MCLK.%20It%20is%20highly%20recommended%20when%20setting%20a%20non-default%20system%20clock%20frequency%20to%20ensure%20a%20proper%20system%20start-up."/>
         </module>
     </package>
-    <package name="configPkg" version="" repository="K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/">
+    <package name="configPkg" version="" repository="C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/Debug/">
     </package>
-    <package name="ti.mcu.msp430.csl.interrupt_vectors" version="1, 0, 0" repository="C:/TI/grace_1_10_00_17/packages/">
+    <package name="ti.mcu.msp430.csl.interrupt_vectors" version="1, 0, 0" repository="C:/ti/grace_1_10_00_17/packages/">
         <module name="ti.mcu.msp430.csl.interrupt_vectors.InterruptVectors"
                 used="false"
                 uses="">

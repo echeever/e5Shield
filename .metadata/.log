@@ -52,3 +52,348 @@ java.lang.AbstractMethodError
 
 !ENTRY org.eclipse.cdt.core 1 0 2012-05-15 14:41:41.838
 !MESSAGE Indexed 'ServoI2C' (12 sources, 24 headers) in 4.32 sec: 650 declarations; 881 references; 4 unresolved inclusions; 1 syntax errors; 7 unresolved names (0.46%)
+!SESSION 2012-05-31 09:37:53.309 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product -data C:\Users\naaron1\Documents\GitHub\e5Shield\ -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.gde.adapter.c6flo 1 0 2012-05-31 09:38:25.604
+!MESSAGE install directory: C:\ti\ccsv5\eclipse
+
+!ENTRY com.ti.gde.adapter.c6flo 1 0 2012-05-31 09:38:25.611
+!MESSAGE blocksDirectory directory: C:\ti\ccsv5\ccs_base\c6flo_1.0.0.201110191212\Blocks
+
+!ENTRY com.ti.gde.adapter.c6flo 1 0 2012-05-31 09:38:25.617
+!MESSAGE xdcToolLocation directory: C:/ti/xdctools_3_22_04_46
+
+!ENTRY com.ti.gde.diagram 1 0 2012-05-31 09:38:25.618
+!MESSAGE GDE adapter found: com.ti.gde.adapter.c6flo.C6floAdapter   Supporting extensions: [c6flo] PluginID=com.ti.gde.adapter.c6flo
+
+!ENTRY org.eclipse.cdt.core 4 0 2012-05-31 09:54:06.562
+!MESSAGE Error
+!STACK 0
+java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(Unknown Source)
+	at sun.nio.ch.FileChannelImpl.size(Unknown Source)
+	at org.eclipse.cdt.internal.core.parser.scanner.FileCharArray.create(FileCharArray.java:44)
+	at org.eclipse.cdt.internal.core.parser.InternalParserUtil.createFileContent(InternalParserUtil.java:223)
+	at org.eclipse.cdt.internal.core.parser.InternalParserUtil.createExternalFileContent(InternalParserUtil.java:210)
+	at org.eclipse.cdt.core.parser.FileContent.createForExternalFileLocation(FileContent.java:95)
+	at org.eclipse.cdt.core.parser.FileContent.createForExternalFileLocation(FileContent.java:87)
+	at org.eclipse.cdt.internal.core.parser.SavedFilesProvider.getContentForInclusion(SavedFilesProvider.java:41)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor$1.checkFile(CPreprocessor.java:102)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor$1.checkFile(CPreprocessor.java:1)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.findInclusion(CPreprocessor.java:938)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.executeInclude(CPreprocessor.java:1254)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.executeDirective(CPreprocessor.java:1070)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.internalFetchToken(CPreprocessor.java:729)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.fetchToken(CPreprocessor.java:471)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.nextToken(CPreprocessor.java:565)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.fetchToken(AbstractGNUSourceCodeParser.java:265)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.nextToken(AbstractGNUSourceCodeParser.java:289)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.acceptInactiveCodeBoundary(AbstractGNUSourceCodeParser.java:350)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.declarationList(AbstractGNUSourceCodeParser.java:1313)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.parseTranslationUnit(AbstractGNUSourceCodeParser.java:1283)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.translationUnit(AbstractGNUSourceCodeParser.java:1278)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.parse(AbstractGNUSourceCodeParser.java:650)
+	at org.eclipse.cdt.core.dom.parser.AbstractCLikeLanguage.getASTTranslationUnit(AbstractCLikeLanguage.java:138)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.getAST(TranslationUnit.java:809)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.getAST(TranslationUnit.java:764)
+	at sun.reflect.GeneratedMethodAccessor22.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionSummaries(RTSCHelpProvider.java:71)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionInfo(RTSCHelpProvider.java:153)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionInfo(RTSCHelpProvider.java:1)
+	at org.eclipse.cdt.internal.ui.text.CHelpSettings.getFunctionInfo(CHelpSettings.java:121)
+	at org.eclipse.cdt.internal.ui.CHelpProviderManager.getFunctionInfo(CHelpProviderManager.java:163)
+	at org.eclipse.cdt.internal.ui.text.c.hover.CDocHover.getHoverInfo(CDocHover.java:84)
+	at org.eclipse.cdt.internal.ui.text.c.hover.AbstractCEditorTextHover.getHoverInfo2(AbstractCEditorTextHover.java:83)
+	at org.eclipse.cdt.internal.ui.text.c.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:149)
+	at org.eclipse.cdt.internal.ui.text.c.hover.CEditorTextHoverProxy.getHoverInfo2(CEditorTextHoverProxy.java:86)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+
+!ENTRY org.eclipse.cdt.core 4 0 2012-05-31 09:54:06.564
+!MESSAGE Error
+!STACK 0
+java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(Unknown Source)
+	at sun.nio.ch.FileChannelImpl.size(Unknown Source)
+	at org.eclipse.cdt.internal.core.parser.scanner.FileCharArray.create(FileCharArray.java:44)
+	at org.eclipse.cdt.internal.core.parser.InternalParserUtil.createFileContent(InternalParserUtil.java:223)
+	at org.eclipse.cdt.internal.core.parser.InternalParserUtil.createExternalFileContent(InternalParserUtil.java:210)
+	at org.eclipse.cdt.core.parser.FileContent.createForExternalFileLocation(FileContent.java:95)
+	at org.eclipse.cdt.core.parser.FileContent.createForExternalFileLocation(FileContent.java:87)
+	at org.eclipse.cdt.internal.core.parser.SavedFilesProvider.getContentForInclusion(SavedFilesProvider.java:41)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor$1.checkFile(CPreprocessor.java:102)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor$1.checkFile(CPreprocessor.java:1)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.findInclusion(CPreprocessor.java:969)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.executeInclude(CPreprocessor.java:1254)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.executeDirective(CPreprocessor.java:1070)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.internalFetchToken(CPreprocessor.java:729)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.fetchToken(CPreprocessor.java:471)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.nextToken(CPreprocessor.java:565)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.fetchToken(AbstractGNUSourceCodeParser.java:265)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.nextToken(AbstractGNUSourceCodeParser.java:289)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.acceptInactiveCodeBoundary(AbstractGNUSourceCodeParser.java:350)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.declarationList(AbstractGNUSourceCodeParser.java:1313)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.parseTranslationUnit(AbstractGNUSourceCodeParser.java:1283)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.translationUnit(AbstractGNUSourceCodeParser.java:1278)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.parse(AbstractGNUSourceCodeParser.java:650)
+	at org.eclipse.cdt.core.dom.parser.AbstractCLikeLanguage.getASTTranslationUnit(AbstractCLikeLanguage.java:138)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.getAST(TranslationUnit.java:809)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.getAST(TranslationUnit.java:764)
+	at sun.reflect.GeneratedMethodAccessor22.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionSummaries(RTSCHelpProvider.java:71)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionInfo(RTSCHelpProvider.java:153)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionInfo(RTSCHelpProvider.java:1)
+	at org.eclipse.cdt.internal.ui.text.CHelpSettings.getFunctionInfo(CHelpSettings.java:121)
+	at org.eclipse.cdt.internal.ui.CHelpProviderManager.getFunctionInfo(CHelpProviderManager.java:163)
+	at org.eclipse.cdt.internal.ui.text.c.hover.CDocHover.getHoverInfo(CDocHover.java:84)
+	at org.eclipse.cdt.internal.ui.text.c.hover.AbstractCEditorTextHover.getHoverInfo2(AbstractCEditorTextHover.java:83)
+	at org.eclipse.cdt.internal.ui.text.c.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:149)
+	at org.eclipse.cdt.internal.ui.text.c.hover.CEditorTextHoverProxy.getHoverInfo2(CEditorTextHoverProxy.java:86)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+
+!ENTRY org.eclipse.cdt.core 4 0 2012-05-31 09:54:06.566
+!MESSAGE Error
+!STACK 0
+java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(Unknown Source)
+	at sun.nio.ch.FileChannelImpl.size(Unknown Source)
+	at org.eclipse.cdt.internal.core.parser.scanner.FileCharArray.create(FileCharArray.java:44)
+	at org.eclipse.cdt.internal.core.parser.InternalParserUtil.createFileContent(InternalParserUtil.java:223)
+	at org.eclipse.cdt.internal.core.parser.InternalParserUtil.createExternalFileContent(InternalParserUtil.java:210)
+	at org.eclipse.cdt.core.parser.FileContent.createForExternalFileLocation(FileContent.java:95)
+	at org.eclipse.cdt.core.parser.FileContent.createForExternalFileLocation(FileContent.java:87)
+	at org.eclipse.cdt.internal.core.parser.SavedFilesProvider.getContentForInclusion(SavedFilesProvider.java:41)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor$1.checkFile(CPreprocessor.java:102)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor$1.checkFile(CPreprocessor.java:1)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.findInclusion(CPreprocessor.java:969)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.executeInclude(CPreprocessor.java:1254)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.executeDirective(CPreprocessor.java:1070)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.internalFetchToken(CPreprocessor.java:729)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.fetchToken(CPreprocessor.java:471)
+	at org.eclipse.cdt.internal.core.parser.scanner.CPreprocessor.nextToken(CPreprocessor.java:565)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.fetchToken(AbstractGNUSourceCodeParser.java:265)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.nextToken(AbstractGNUSourceCodeParser.java:289)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.acceptInactiveCodeBoundary(AbstractGNUSourceCodeParser.java:350)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.declarationList(AbstractGNUSourceCodeParser.java:1313)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.parseTranslationUnit(AbstractGNUSourceCodeParser.java:1283)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.translationUnit(AbstractGNUSourceCodeParser.java:1278)
+	at org.eclipse.cdt.internal.core.dom.parser.AbstractGNUSourceCodeParser.parse(AbstractGNUSourceCodeParser.java:650)
+	at org.eclipse.cdt.core.dom.parser.AbstractCLikeLanguage.getASTTranslationUnit(AbstractCLikeLanguage.java:138)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.getAST(TranslationUnit.java:809)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.getAST(TranslationUnit.java:764)
+	at sun.reflect.GeneratedMethodAccessor22.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionSummaries(RTSCHelpProvider.java:71)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionInfo(RTSCHelpProvider.java:153)
+	at org.eclipse.rtsc.xdctools.ui.contentassist.RTSCHelpProvider.getFunctionInfo(RTSCHelpProvider.java:1)
+	at org.eclipse.cdt.internal.ui.text.CHelpSettings.getFunctionInfo(CHelpSettings.java:121)
+	at org.eclipse.cdt.internal.ui.CHelpProviderManager.getFunctionInfo(CHelpProviderManager.java:163)
+	at org.eclipse.cdt.internal.ui.text.c.hover.CDocHover.getHoverInfo(CDocHover.java:84)
+	at org.eclipse.cdt.internal.ui.text.c.hover.AbstractCEditorTextHover.getHoverInfo2(AbstractCEditorTextHover.java:83)
+	at org.eclipse.cdt.internal.ui.text.c.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:149)
+	at org.eclipse.cdt.internal.ui.text.c.hover.CEditorTextHoverProxy.getHoverInfo2(CEditorTextHoverProxy.java:86)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+
+!ENTRY org.eclipse.ui 4 4 2012-05-31 10:12:37.337
+!MESSAGE Referenced part does not exist yet: org.eclipse.jdt.ui.PackageExplorer.
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.031
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.046
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.110
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.116
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x205 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.120
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x206 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.124
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x207 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.128
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x208 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.132
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x209 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 11:43:45.136
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x20a on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:14.972
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:14.996
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.041
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.110
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x205 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.120
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x206 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.127
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x207 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.134
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x208 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.141
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x209 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 12:03:15.148
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x20a on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.794
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.818
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.848
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.854
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x205 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.859
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x206 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.863
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x207 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.867
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x208 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.871
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x209 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:35.875
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x20a on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:38.505
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:38.511
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x205 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 14:28:38.517
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x206 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:42:27.600
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:42:27.625
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:42:27.684
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:42:37.535
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:42:37.550
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:42:37.600
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:43:01.161
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fc on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:51:40.451
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:51:40.458
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:51:40.522
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:51:48.204
+!MESSAGE DS_ERROR: MSP430: Trouble Setting Breakpoint with the Action "Remain Halted" at 0xc0aa: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:52:04.407
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:52:04.413
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x205 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:52:04.419
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x206 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:52:10.821
+!MESSAGE DS_ERROR: MSP430: Can't Run Target CPU: Could not run device (to breakpoint)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:52:10.835
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x3fe on Page 0 of Length 0x2: Could not read device memory
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2012-05-31 15:52:10.890
+!MESSAGE DS_ERROR: MSP430: Trouble Reading Memory Block at 0x204 on Page 0 of Length 0x1: Could not read device memory
+
+
+!ENTRY org.eclipse.ui 4 0 2012-05-31 17:18:21.577
+!MESSAGE Problems opening perspective 'com.ti.ccstudio.TICPerspective'

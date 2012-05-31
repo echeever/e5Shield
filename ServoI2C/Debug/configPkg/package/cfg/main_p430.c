@@ -50,7 +50,7 @@
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/cfg/main_p430");
+xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/Debug/configPkg/package/cfg/main_p430");
 
 /*
  *  ======== __ISA__ ========
@@ -115,37 +115,37 @@ Void ti_catalog_msp430_init_Boot_init()
  * ======== ti.mcu.msp430.csl.communication.USCI_B0 TEMPLATE ========
  */
 
-/* USCI_B0 stuff from C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/communication/./USCI_B0.xdt */
+/* USCI_B0 stuff from C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/communication/./USCI_B0.xdt */
 
 /*
  * ======== ti.mcu.msp430.csl.system.System TEMPLATE ========
  */
 
-/* System stuff from C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/system/./System.xdt */
+/* System stuff from C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/system/./System.xdt */
 
 /*
  * ======== ti.mcu.msp430.csl.timer.Timer0_A3 TEMPLATE ========
  */
 
-/* Timer_A stuff from C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/timer/./ITimer_A.xdt */
+/* Timer_A stuff from C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/timer/./ITimer_A.xdt */
 
 /*
  * ======== ti.mcu.msp430.csl.watchdog.WDTplus TEMPLATE ========
  */
 
-/* WDTplus stuff from C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/watchdog/./WDTplus.xdt */
+/* WDTplus stuff from C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/watchdog/./WDTplus.xdt */
 
 /*
  * ======== ti.mcu.msp430.csl.gpio.GPIO TEMPLATE ========
  */
 
-/* GPIO stuff from C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/gpio/./GPIO.xdt */
+/* GPIO stuff from C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/gpio/./GPIO.xdt */
 
 /*
  * ======== ti.mcu.msp430.csl.clock.BCSplus TEMPLATE ========
  */
 
-/* 2xx Clock stuff from C:/TI/grace_1_10_00_17/packages/ti/mcu/msp430/csl/clock/./BCSplus.xdt */
+/* 2xx Clock stuff from C:/ti/grace_1_10_00_17/packages/ti/mcu/msp430/csl/clock/./BCSplus.xdt */
 
 /*
  * ======== PROGRAM GLOBALS ========

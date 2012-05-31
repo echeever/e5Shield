@@ -8,9 +8,9 @@ Tool="CustomBuilder"
 Config="Executable"
 
 [Project Dependencies]
-Source="K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/configPkg.pjt"
+Source="C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/Debug/configPkg/package/configPkg.pjt"
 
-["K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg/package/configPkg.pjt" Settings]
+["C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/Debug/configPkg/package/configPkg.pjt" Settings]
 ExcludeFromBuild=true
 
 
@@ -20,7 +20,7 @@ ExcludeFromBuild=true
 ;  directories.
 ;
 ["Compiler" Settings: "Executable"]
-Options=-i"C:/TI/grace_1_10_00_17/packages" -i"C:/TI/xdctools_3_22_04_46/packages" -i"K:\My Documents\WorkspaceCCS5\ServoI2C\Debug" 
+Options=-i"C:/ti/grace_1_10_00_17/packages" -i"C:/ti/xdctools_3_22_04_46/packages" -i"C:\Users\naaron1\Documents\GitHub\e5Shield\ServoI2C\Debug" 
 
 [External Makefile]
 ExtMakefile=../../package.bld
@@ -32,11 +32,11 @@ ExtMakefile=../../package.bld
 [Source Files]
 Source="../../package.bld"
 Source="main_x430.c"
-Source="../../K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg"
+Source="../../C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/main.cfg"
 
 ["../../package.bld" Settings: "Executable"]
 UseCustomBuild=true
-CustomBuildCmd=C:\TI\xdctools_3_22_04_46\xdc.exe main.x430
+CustomBuildCmd=C:\ti\xdctools_3_22_04_46\xdc.exe main.x430
 
 ; if no custom "clean" command is specified, rebuild all deletes the
 ; following files before running the build command above.  
@@ -50,7 +50,7 @@ CustomBuildOutput="main.x430"
 ;  Instead we only clean out those files associated with the target used to
 ;  build the executable.
 ;
-CustomCleanCmd=C:\TI\xdctools_3_22_04_46\xdc.exe clean,430
+CustomCleanCmd=C:\ti\xdctools_3_22_04_46\xdc.exe clean,430
 ;
 ;  Always run the xdc command since this command is the one that tracks
 ;  dependencies
@@ -66,5 +66,5 @@ Run=Always
 ["main_x430.c" Settings: "Executable"]
 ExcludeFromBuild=true
 
-["../../K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg" Settings: "Executable"]
+["../../C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/main.cfg" Settings: "Executable"]
 ExcludeFromBuild=true

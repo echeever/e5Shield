@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/TI/ccsv5/tools/compiler/msp430
+CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/msp430
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
@@ -112,10 +112,10 @@ endif
 all: ServoI2C.out
 
 # Tool invocations
-ServoI2C.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
+ServoI2C.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/TI/ccsv5/tools/compiler/msp430/bin/cl430" -vmsp --abi=coffabi -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --printf_support=minimal -z -m"ServoI2C.map" --stack_size=80 --heap_size=80 -i"C:/TI/ccsv5/ccs_base/msp430/include" -i"C:/TI/ccsv5/tools/compiler/msp430/lib" -i"C:/TI/ccsv5/tools/compiler/msp430/include" --reread_libs --warn_sections --rom_model -o "ServoI2C.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv5/tools/compiler/msp430/bin/cl430" -vmsp --abi=coffabi -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --printf_support=minimal -z -m"ServoI2C.map" --stack_size=80 --heap_size=80 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430/lib" -i"C:/ti/ccsv5/tools/compiler/msp430/include" --reread_libs --warn_sections --rom_model -o "ServoI2C.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

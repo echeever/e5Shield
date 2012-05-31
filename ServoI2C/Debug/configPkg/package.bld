@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'K:/My Documents/WorkspaceCCS5/ServoI2C/main.cfg',
+        cfgScript: 'C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/main.cfg',
         profile: 'debug',
         cfgHome: 'configPkg',
 });
@@ -47,7 +47,7 @@ else {
 }
 var thisObj = {
     cfg:        '../main.cfg',
-    outputPath: 'K:/My Documents/WorkspaceCCS5/ServoI2C/Debug/configPkg',
+    outputPath: 'C:/Users/naaron1/Documents/GitHub/e5Shield/ServoI2C/Debug/configPkg',
     exeName:    'main' + suffix,
     exeIntName: 'main' + suffix.replace('.', '_'),
     targ:       targ,

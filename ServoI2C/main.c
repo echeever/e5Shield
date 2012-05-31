@@ -4,7 +4,7 @@
 #define FALSE 			0
 #define TRUE  			!FALSE
 #define DISABLESERVO	251
-#define UPDATESERVOS	252
+#define RESET_I2C_STATE	252
 #define	LEDP1_0			13
 
 enum i2cStates { WAITING, GETVAL} volatile i2cState = WAITING;
@@ -12,11 +12,12 @@ enum pwmStates { MSEC1, MSECVAR, MSEC18 } volatile pwmState = MSEC18;
 
 const char bitMask[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
 
-volatile unsigned char srvVals[8];
+volatile unsigned char srvVals[9];
 volatile unsigned char srvNum;
 volatile int msecCnt = 0;
 volatile unsigned char updateFlag = FALSE;
 volatile unsigned char startUpdateFlag = FALSE;
+volatile unsigned char pulseFlag = FALSE;
 volatile unsigned char ngFlag = FALSE;	// For debugging only - this should never be true.
 unsigned volatile char srvs[256]; // this needn't be global - easier for debugging.
 
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]) {
 
     CSL_init();                     // Activate Grace-generated configuration
 
-    for (i=0;i<4;i++) {					// BLink LED twice (sanity check)
+    for (i=0;i<4;i++) {					// BLink LED twice (sanity cheS0ck)
     	for (j=0;j<4000;j++)			// Delay
     		for (k=0;k<100;k++);
     	P1OUT ^= 1;
@@ -45,42 +46,42 @@ int main(int argc, char *argv[]) {
     TA0CCTL0 = CCIE;                // CCR0 interrupt enabled
 
 	while (1) {
-		if (P1IN & BIT5) P1OUT |= BIT4;
-		else 			 P1OUT &= ~BIT4;
-
 		switch (pwmState) {
 		case MSEC1:  				// During first millisecond
 			P2OUT = servoMask; 		//  all enabled servos have high outputs.
 			break;
 		case MSECVAR:				// During second millisecond
-			for (i=0; i<=250; i++) {//  put out variable duration
-				P2OUT = srvs[i];	//  pulse.
-				for (j=0; j<3; j++);// Delay for 4 uSec
+			if (pulseFlag) {
+				for (i=0; i<=250; i++) {//  put out variable duration
+					P2OUT = srvs[i];	//  pulse.
+					for (j=0; j<9; j++);// Delay for 4 uSec
+					asm(" NOP"); asm(" NOP"); asm(" NOP"); asm(" NOP");
+				}
+				pulseFlag = FALSE;
 			}
 			break;
 		case MSEC18:
 			P2OUT = 0x00;  			//  all servos outputs are low.
-			break;
+			if (msecCnt == 0) {
+				servoMask=0x00;
+				for (j=0; j<8; j++) {
+					if (srvVals[j]<=250) servoMask |= 1 << j;
+				}
+
+				for (i=250; i>=0; i--) {  		//
+		    		int servosOn = 0;
+	   	    		for (j=0; j<8; j++) {		// For each motor
+		   	    		if (i<srvVals[j]) servosOn |= 1 << j;
+		   	    	}
+		   	    	srvs[i] = servosOn & servoMask;
+		    	}
+
+				if (srvVals[8] & 0x01) P1OUT |= BIT0;
+				else P1OUT &= ~BIT0;
+			}
+	 		break;
 		default: ngFlag=TRUE;
     	}
-		if (startUpdateFlag) {
-			updateFlag = FALSE;
-			startUpdateFlag = FALSE;
-
-			servoMask=0x00;
-			for (j=0; j<8; j++) {
-				if (srvVals[j]<=250) servoMask |= 1 << j;
-			}
-
-			for (i=250; i>=0; i--) {  		//
-	    		int servosOn = 0;
-   	    		for (j=0; j<8; j++) {		// For each motor
-	   	    		if (i<srvVals[j]) servosOn |= 1 << j;
-	   	    	}
-	   	    	srvs[i] = servosOn & servoMask;
-	    	}
-		}
-
     }
 }
 
@@ -94,20 +95,13 @@ __interrupt void i2cRcvInt(void) {
 		i2cState = GETVAL;
 		break;
 	case GETVAL:
-		if (srvNum <= 7) {
-				srvVals[srvNum] = i2cByte;
-		}
-		else if (srvNum == LEDP1_0) {
-			if (i2cByte & 0x01) P1OUT |= 1;
-			else P1OUT &= ~1;
-		}
+		if (srvNum <= 8) srvVals[srvNum] = i2cByte;
 		i2cState = WAITING;
 		break;
 	default:
 		i2cState = WAITING;	ngFlag=TRUE;
 	}
-	if (i2cByte == UPDATESERVOS) {
-		updateFlag = TRUE;
+	if (i2cByte == RESET_I2C_STATE) {
 		i2cState = WAITING;
 	}
 }
@@ -115,17 +109,17 @@ __interrupt void i2cRcvInt(void) {
 
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void mSecInt(void) {
-	switch (pwmState) {
+	switch (pwmState) {		// state machine servo pulse width assignments
 	case MSEC1:
-		pwmState=MSECVAR;
+		pwmState=MSECVAR;	// from state MSEC1 in first millisecond, move to MSECVAR
+		pulseFlag = TRUE;
 		break;
 	case MSECVAR:
-		pwmState=MSEC18;
-		msecCnt=0;
+		pwmState=MSEC18;	// from MSECVAR in the second millisecond, move to MSEC18
+		msecCnt=0;			// reset millisecond counter
 		break;
 	case MSEC18:
-		if (updateFlag & (msecCnt==0)) startUpdateFlag = TRUE;
-		if (msecCnt++ > 16) pwmState=MSEC1;
+		if (msecCnt++ > 16) pwmState=MSEC1;	 // stay in state MSEC18 for 18 msec
 		break;
 	default:
 		pwmState=MSEC18;
@@ -134,7 +128,6 @@ __interrupt void mSecInt(void) {
 }
 
 /*
- * srvNum = 0-9, this is the number of the servo to be written
- * srvNum = 13 (ASCII:"="), this is an LED connect to P1.0 on E5Shield
- * srvNum = 14 (ASCII:">"), this is the command to update.
- */
+ * srvNum = 0-7, this is the number of the servo to be written
+ * srvNum = 8 (ASCII:"="), this is an LED connect to P1.0 on E5Shield
+  */

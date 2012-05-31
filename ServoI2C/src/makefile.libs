@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     K:\My Documents\WorkspaceCCS5\ServoI2C\main.cfg
+#     C:\Users\naaron1\Documents\GitHub\e5Shield\ServoI2C\main.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    K:\My Documents\WorkspaceCCS5\ServoI2C\src
+#    C:\Users\naaron1\Documents\GitHub\e5Shield\ServoI2C\src
 #
 GEN_SRC_DIR ?= ../src
 
