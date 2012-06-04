@@ -349,7 +349,7 @@ classdef E5Shield < handle
                     error('Function must have the "pin" and "val" arguments');
                 end
                 % check pin
-                errstr=E5Shield.checknum(pin,'pwm pin number',0:5);
+                errstr=E5Shield.checknum(pin,'pwm pin number',[3 5 6 9 10 11]);
                 if ~isempty(errstr), error(errstr); end
                 % check val
                 errstr=E5Shield.checknum(val,'analog output level',0:255);
